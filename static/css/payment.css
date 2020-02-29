@@ -1,0 +1,27 @@
+
+/* styling for the payment page.. */
+
+.code{
+    
+    text-align: center;
+    padding-top: 60px;
+  
+}
+
+input[type=text] {
+    border: 2px solid rgb(12, 226, 29);
+    border-radius: 15px;
+    width: 20rem;
+    padding: 10px 15px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+body{
+
+    background-color: rgb(140, 182, 236);
+    
+}
+div.hed{
+    text-align: center;
+}

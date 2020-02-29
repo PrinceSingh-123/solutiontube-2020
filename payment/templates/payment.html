@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Payment</title>
+    <!-- source code for the khalti -->
+    <script src="https://khalti.com/static/khalti-checkout.js"></script>
+    <!-- source code for the Bootstrap.. -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/payment.css' %}">
+</head>
+<body>
+    <div>
+        <br>
+       <h6 class="container">
+        <br>
+        <br>
+        <!-- <li><a href="{% url 'account_logout' %}">Sign Out</a></!--> 
+       </h6>
+       <br>
+
+    </div>
+    <div class="container" class="align-center">
+    <!-- Place this where you need payment button -->
+    <!-- <button class="btn btn-success" id="payment-button">Pay with Khalti</button> -->
+    <!-- Place this where you need payment button -->
+    <!-- Paste this code anywhere in you body tag -->
+    <!-- <script>
+        var config = {
+            // replace the publicKey with yours
+            "publicKey": "test_public_key_8eae1dff269f41cdbb26ab3f3cb876a2",
+            "productIdentity": "1234567890",
+            "productName": "Dragon",
+            "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
+            "eventHandler": {
+                onSuccess (payload) {
+                    // hit merchant api for initiating verfication
+                    window.location.href = "http://www.w3schools.com";
+                    
+                    
+
+                    console.log(payload);
+                },
+                onError (error) {
+                    console.log(error);
+                },
+                onClose () {
+                    console.log('widget is closing');
+                }
+            }
+        };
+
+        var checkout = new KhaltiCheckout(config);
+        var btn = document.getElementById("payment-button");
+        btn.onclick = function () {
+            checkout.show({amount: 5000});
+        }
+    </script> -->
+    </div>
+    <br>
+   
+    <br>
+    <div >
+        <div  class="code" > 
+            <h5 class="container" style="margin-right: 5.5cm;"></h5>          
+            <br>       
+                    <form method="POST">
+                            {% csrf_token %}
+                            <div style="font-size:17px;" class="input" class="container">
+                                <input type="text" 
+                                name="srch" 
+                                placeholder="Enter your subscription code.."
+                                autocomplete="on"
+                                autofocus
+                                >
+                              <button class="btn btn-success" type="submit">Summit</button>
+                    </form>  
+    </div>
+    </div>
+   
+</div>
+</body>
+<!-- Bootstrap source code.. -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</html>

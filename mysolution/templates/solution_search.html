@@ -1,0 +1,121 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mysolution</title>
+    <!-- Bootstrap studio.. -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!-- stlye file for the solution.html -->
+    <!-- ***********************Jquery Scripts*********************************************************** -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- ************************************************************************************************ -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'css/solution.css' %}">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500i" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
+
+    <link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+</head>
+
+<body>
+    <header style="background: #000000; " id="header">
+        <div class="container">
+            <div class="d-flex justify-content-end justify-content-between d-flex">
+                <div id="logo">
+                    <a class="logo" href="{% url 'index' %}"><img src="#" alt="" title="" />solutiontube</a>
+                </div>
+                <nav id="nav-menu-container " class="text-right font-awesome">
+                    <ul class="nav-menu navbar-collapse collapse w-100 order-3 dual-collapse2">
+
+                        <li class="menu-active"><a style="color: whitesmoke;" href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'ebook:book' %}">Ebook</a></li>
+
+                        <li><a href="{% url 'mytutorial:tutorial' %}">Tutorial</a></li>
+                        <li><a href="{% url 'mysolution:solution' %}">solution</a></li>
+                        <li><a href="{% url 'myexam:exam' %}">exam</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                        <li><a href="{% url 'account_logout' %}">sign out</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header> -->
+
+    <!-- our solution code start from here.. -->
+
+    <div style="padding-top: 2cm;;" class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <input style="width: 10cm; border-radius:1.5cm; padding-left:0.5cm " type="text" id="company_autocomplete_input" name="search" placeholder="Enter your questions.." autocomplete="on"
+                autofocus>
+            <button style="border-radius:2cm;" type="submit" class="btn-outline-primary">Search</button>
+        </form>
+    </div>
+    <hr>
+    <div class="container">
+        {% if result %}
+
+        {% for x in result %}
+
+        <div class="container">
+            <h5 style="color:#4169E1"> {{ x.question }} - Grade -{{ x.grade}} - {{ x.subject }}</h5>
+        </div>
+
+        <div style="padding-top: 1rem;" class="container">
+            <h6>{{ x.answer }}</h6>
+        </div>
+
+        {% endfor %}
+
+        {% endif %}
+    </div>
+</body>
+<!-- ********************Auto-complete Jquery script************************************* -->
+<script>
+    $(function () {
+        $("#company_autocomplete_input").autocomplete({
+            source: "{% url 'solution-autocomplete' %}",
+            autoFocus: true,
+            delay: 0,
+            minLength: 1,
+        });
+    });
+</script>
+
+<!-- ***************************Bootstrap scripts************************************************** -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+</html>
