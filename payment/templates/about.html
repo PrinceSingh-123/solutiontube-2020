@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 {% load static %}
 <html lang="en">
 
@@ -10,6 +10,9 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
+
+    <!-- ****************Stylesheet****************** -->
+
     <!--FontAwesome-->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         type="text/css" />
@@ -20,17 +23,13 @@
     <!--CSS Style-->
     <link href="{% static 'css/demo.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'css/ace-responsive-menu.css' %}" rel="stylesheet" type="text/css" />
- 
-    <style>
-       body{
-        background: url( "{% static 'images/home.png' %}") no-repeat fixed;
-        background-attachment: fixed; background-size: 100% 100%;
-       }
-   
-    </style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 
-<body >
+<body>
+    <!-- ****************************Navbar************************ -->
     <div class="demo">
         <!-- Ace Responsive Menu -->
         <nav>
@@ -45,7 +44,7 @@
             </div>
             <!-- Responsive Menu Structure-->
             <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
-            <ul style="background-color: transparent;" id="respMenu" class="ace-responsive-menu"
+            <ul  id="respMenu" class="ace-responsive-menu"
                 data-menu-style="horizontal ceter">
                 <li>
                     <a href="{% url 'index' %}">
@@ -54,7 +53,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'ebook:book' %}">
+                    <a href="#">
                         <i class="fa fa-book" aria-hidden="true"></i>
                         <span class="title">Ebook</span>
                     </a>
@@ -73,7 +72,7 @@
                 </li>
 
                 <li>
-                    <a href="{% url 'myexam:exam' %}">
+                    <a href="#">
                         <i class="fa fa-user-circle" aria-hidden="true"></i>
                         <span class="title">Exam</span>
                     </a>
@@ -111,7 +110,7 @@
             });
         });
     </script>
-
+<!--********************** NavBar-************** -->
 </body>
 
 </html>
