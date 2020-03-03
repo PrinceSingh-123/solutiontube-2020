@@ -73,7 +73,7 @@ def index(request,*args, **kwargs):
 # web-page for the contact..
 
 def contact(request):
-    return render(request,'contact.html')
+    return render(request,'about.html')
 
 def home(request):
     return render(request,'index.html')
