@@ -1,5 +1,5 @@
 <html lang="en">
-
+    {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,55 +22,113 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
-    {% load static %}
-    <link rel='stylesheet' href="{% static 'css/solution.css' %}">
+  <!-- ******************navbar stylesheet*********** -->
+    
+    <!--Responsiveness-->
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500i" rel="stylesheet">
+    <!-- ****************Stylesheet****************** -->
 
+    <!--FontAwesome-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        type="text/css" />
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">
+    <![endif]-->
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
+    <!--CSS Style-->
+    <link href="{% static 'css/demo.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/ace-responsive-menu.css' %}" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
-    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
-    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
-    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
 
 <body>
-    <header style="background: #000000; " id="header">
-        <div class="container">
-            <div class="d-flex justify-content-end justify-content-between d-flex">
-                <div id="logo">
-                    <a class="logo" href="{% url 'index' %}"><img src="#" alt="" title="" />solutiontube</a>
-                </div>
-                <nav id="nav-menu-container " class="text-right font-awesome">
-                    <ul class="nav-menu navbar-collapse collapse w-100 order-3 dual-collapse2">
-
-                        <li class="menu-active"><a style="color: whitesmoke;" href="{% url 'index' %}">Home</a></li>
-                        <li><a href="{% url 'ebook:book' %}">Ebook</a></li>
-
-                        <li><a href="{% url 'mytutorial:tutorial' %}">Tutorial</a></li>
-                        <li><a href="{% url 'mysolution:solution' %}">solution</a></li>
-                        <li><a href="{% url 'myexam:exam' %}">exam</a></li>
-                        <li><a href="{% url 'contact' %}">Contact</a></li>
-                        <li><a href="{% url 'account_logout' %}">sign out</a></li>
-
-                    </ul>
-                </nav>
+       <!-- ****************************Navbar************************ -->
+       <div class="demo">
+        <!-- Ace Responsive Menu -->
+        <nav>
+            <!-- Menu Toggle btn-->
+            <div class="menu-toggle">
+                <h3>solutiontube</h3>
+                <button type="button" id="menu-btn">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
             </div>
-        </div>
-    </header> -->
+            <!-- Responsive Menu Structure-->
+            <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
+            <ul  id="respMenu" class="ace-responsive-menu"
+                data-menu-style="horizontal ceter">
+                <li>
+                    <a href="{% url 'index' %}">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'ebook:book' %}">
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                        <span class="title">Ebook</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'mytutorial:tutorial' %}">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                        <span class="title">Tutorial</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'mysolution:solution' %}">
+                        <i class="fa fa-desktop" aria-hidden="true"></i>
+                        <span class="title">Solution</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                        <span class="title">About us</span>
+                    </a>
+                </li>
+                <li class="last ">
+                    <a href="{% url 'contact' %}">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        <span class="title">Contact</span>
+                    </a>
+                </li>
+                <li class="last ">
+                    <a href="{% url 'account_logout' %}">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <span class="title">log out</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- End of Responsive Menu -->
+    </div>
+    <!--Scripts-->
+    <script src="{% static 'js/ace-responsive-menu.js' %}" type="text/javascript"></script>  
+
+    <!--Plugin Initialization-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#respMenu").aceResponsiveMenu({
+                resizeWidth: '768', // Set the same in Media query
+                animationSpeed: 'fast', //slow, medium, fast
+                accoridonExpAll: false //Expands all the accordion menu on click
+            });
+        });
+    </script>
+<!--********************** NavBar-************** -->
 
     <!-- our solution code start from here.. -->
 
-    <div style="padding-top: 2cm;;" class="container">
+    <div style="padding-top:1.8cm; text-align: center;" class="container">
         <form method="POST">
             {% csrf_token %}
             <input style="width: 10cm; border-radius:1.5cm; padding-left:0.5cm " type="text" id="company_autocomplete_input" name="search" placeholder="Enter your questions.." autocomplete="on"

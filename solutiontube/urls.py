@@ -1,27 +1,16 @@
-"""solutiontube URL Configuration
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path,include
-from payment import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import url
+
+# from apps
+from payment import views
 from mytutorial.views import tutorial_autocomplete
 from mysolution.views import solution_autocomplete
 from ebook.views import ebook_autocomplete
-from django.conf.urls import url
+
 urlpatterns = [
 
     path('',views.index, name='home'),
@@ -40,7 +29,8 @@ urlpatterns = [
     path('mytutorial/', include('mytutorial.urls')),
 
     # Turorial auto-complete URL forwarding  
-    url(r'^api/company-autocomplete/', tutorial_autocomplete, name='company-autocomplete'), 
+    url(r'^api/company-autocomplete/', tutorial_autocomplete, name='company-autocomplete'),
+     
     # Mysolution URL forwarding
     path('mysolution/', include('mysolution.urls')),
     # Mysolution URL forwarding
@@ -58,6 +48,5 @@ from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from solutiontube import settings
 
- 
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  
