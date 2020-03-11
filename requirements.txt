@@ -1,4 +1,4 @@
-Django==2.2.7
+Django
 beautifulsoup4
 bs4
 certifi
